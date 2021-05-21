@@ -75,8 +75,14 @@ def set_oper():
     print("전체 차집합 짝수:", numbers.difference(evens))
     print("전체 차집합 짝수 -> 홀수?", numbers-evens == odds)
 
-
+def loop():
+    # 전체 집한을 대상으로
+    for item in numbers:
+        print(item, end=" ") # end: item 출력 이후 출력할 것
+    else:
+        print()
 if __name__ == "__main__":
     # define_set()
     # set_methods()
-    set_oper()
+    # set_oper()
+    loop()

@@ -190,10 +190,23 @@ def queue_ex():
     else:
         print("큐가 비어있습니다.")
 
+def loop():
+    """
+    리스트의 순회
+    """
+    words = "Lift is to short, you need Python".replace(",", "").upper().split()
+    print(words)
+
+    # 순차자료형은 for ~ in 문으로 차례대로 요소를 전달 받을 수 있다(별도 인덱스 변수는 없다)
+    for word in words:
+        print("WORD : ", word)
+
+
 
 if __name__ == "__main__":
     # define_list()
     # list_oper()
     # list_methods()
     # stack_ex()
-    queue_ex()
+    # queue_ex()
+    loop()
