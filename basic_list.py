@@ -102,6 +102,98 @@ def list_oper():
     print("MAX:", max(lst)) # 최댓값
     print("AVERAGE:", sum(lst)/len(lst)) # 평균 함수는 없다
 
+def list_methods():
+    """
+    리스트 메서드
+    """
+    lst = [10, 2, 22, 9, 8,833, 4, 12]
+    print("원본: ", lst)
+    copy = lst.copy() # 복제 메서드
+    print("COPY: ", copy)
+    # Reverse : 리스트의 반전
+    copy.reverse() # 원본 배열이 변경된다.
+    print("REVERSE: ", copy)
+
+    copy = lst.copy()
+    print("COPY: ", copy)
+
+    # 정렬 : sort
+    # 메서드로서의 sort -> 내부 데이터를 실제 sort
+    # 문접적으로서의 sorted -> 정렬된 새 리스트를 반환
+
+    # sorted() 함수
+    result = sorted(copy) # copy 리스트를 정렬 후 새 리스트로 반환
+    print("SORTED ASC: ", result) # 오름차순 정렬이 기본
+    result = sorted(copy, reverse=True) # 내림차순 정렬
+    print("SORTED DESC: ", result)
+
+    # 정렬 키 함수 정의
+    # 정렬 키 함수를 전달 -> 정렬 기준을 변경
+    print("================")
+    print("원본: ", copy)
+    result = sorted(copy, key=str) # 키 함수를 str로 변경, 해당 정수를 문자열로 변경하고, 그것을 정렬하는 것
+    print("SORTED key=str: ", result)
+
+    # 정렬 기준의 사용자 정의
+    # 리스트의 요소를 5로 나눈 나머지의 역순으로 정렬 -> 리스트의 ㅇ ㅛ소를 5로 나눈 나머지를 키로 만든다.
+    def key_func(val):
+        return val % 5
+    result = sorted(copy, key=key_func, reverse=True)
+    print("SORTED key=custom, DESD: ", result)
+
+    # sort 메서드
+    copy.sort(key=key_func, reverse=True)
+    print("SORT METHOD: ", copy)
+
+def stack_ex():
+    """
+    리스트를 활용한 스택의 구현
+    append, pop 메서드를 이용한 구현
+    Last in, First out
+    """
+    stack = []
+    # 입력
+    stack.append(10)
+    stack.append(20) # 리스트의 맨 뒤에 요소 입력
+    stack.append(30)
+    print("STACK:", stack)
+
+    # 인출
+    print("POP:", stack.pop())
+    print("POP:", stack.pop())
+    print("pop:", stack.pop())
+
+    if len(stack): # 스택이 비어있지 않으면
+        print("POP:", stack.pop())
+    else:
+        print("스택이 비어있습니다.")
+
+def queue_ex():
+    """
+    리스트를 활용한 큐의 구현
+    append, pop을 활용 구현
+    First in, First out
+    """
+    queue = []
+    # 입력
+    queue.append(10)
+    queue.append(20)
+    queue.append(30)
+    print("QUEUE:", queue)
+
+    # 인출
+    print("POP:", queue.pop(0)) # 맨 앞에서부터 인출
+    print("POP:", queue.pop(0))
+    print("POP:", queue.pop(0))
+    if len(queue):
+        print("POP:", queue.pop(0))
+    else:
+        print("큐가 비어있습니다.")
+
+
 if __name__ == "__main__":
-    #define_list()
-    list_oper()
+    # define_list()
+    # list_oper()
+    # list_methods()
+    # stack_ex()
+    queue_ex()
