@@ -69,7 +69,7 @@ def quiz_03():
     result3 = students[0]['math'] + students[1]['math']
     hap = result1+result2+result3
     print("AVG : ", hap/3)
-
+    print("AVG : ", hap/3)
 
 
 
