@@ -85,5 +85,5 @@ def using_zip():
 
 if __name__ == "__main__":
     # using_range()
-    # using_enumerate()
-    using_zip()
+    using_enumerate()
+    #using_zip()

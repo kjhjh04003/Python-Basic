@@ -205,8 +205,8 @@ def loop():
 
 if __name__ == "__main__":
     # define_list()
-    # list_oper()
+    list_oper()
     # list_methods()
     # stack_ex()
     # queue_ex()
-    loop()
+    # loop()
