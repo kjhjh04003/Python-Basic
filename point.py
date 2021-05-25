@@ -37,30 +37,43 @@ class Point:
     # 연산자 오버로딩 +
     def __add__(self, other):
         # Point + other, 연산자 뒤에 있는 것이 other로 인식
-        if isinstance(other, Point): # + Point
-            self.x += other.x
-            self.y += other.y
-        elif isinstance(other, int): # + int
-            self.x += other
-            self.y += other
-        return self
+        # if isinstance(other, Point): # + Point
+        #     self.x += other.x
+        #     self.y += other.y
+        # elif isinstance(other, int): # + int
+        #     self.x += other
+        #     self.y += other
+        # return self
+        if isinstance(other, Point):
+            return Point(self.x + other.x, self.y +other.y)
+        elif isinstance(other, int):
+            return Point(self.x + other, self.y + other)
+        return self + other
 
     # 연산자 오버로딩 -
     def __sub__(self, other):
+        # if isinstance(other, Point):
+        #     self.x -= other.x
+        #     self.y -= other.y
+        # elif isinstance(other, int):
+        #     self.x -= other
+        #     self.y -= other
+        # return self
         if isinstance(other, Point):
-            self.x -= other.x
-            self.y -= other.y
+            return Point(self.x - other.x, self.y - other.y)
         elif isinstance(other, int):
-            self.x -= other
-            self.y -= other
-        return self
+            return Point(self.x - other, self.y - other)
+        return self - other
 
     # 역이행 연산자 오버로딩
     def __radd__(self, other):
+        # if isinstance(other, int):
+        #     self.x += other
+        #     self.y += other
+        # return self
         if isinstance(other, int):
-            self.x += other
-            self.y += other
-        return self
+            return Point(self.x + other, self.y + other)
+        return self + other
 
     # 비교 연산자 오버로딩 ==
     def __eq__(self, other):
