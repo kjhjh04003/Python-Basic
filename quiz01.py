@@ -1,18 +1,18 @@
 def quiz_01():
     # q1
-    str = "Life is too short, You need Python"
+    s = "Life is too short, You need Python"
     # 문장에 총 몇 개의 알파벳 글자가 사용되었는지 판별
-    print("알파벳 갯수는 ", len(str))
+    print("알파벳 갯수는 ", len(s))
     print()
     # 문자열 내의 글자를 모두 소문자로 변경
-    print("모두 소문자로 변경 : ", str.lower())
+    print("모두 소문자로 변경 : ", s.lower())
     print()
     # 문자열 내의 공백과 ,를 제거
-    print("공백 제거 : ", str.replace(" ", "")) # 공백 제거
-    print("콤마 제거 : ", str.replace(",", "")) # 콤마 제거
+    print("공백 제거 : ", s.replace(" ", "")) # 공백 제거
+    print("콤마 제거 : ", s.replace(",", "")) # 콤마 제거
     print()
     # 문자열을 list 형태로 변환하고 lst 변수에 담기
-    lst = list(str)
+    lst = list(s)
     print("리스트로 형변환")
     print(lst, type(lst))
     print()
@@ -71,9 +71,60 @@ def quiz_03():
     print("AVG : ", hap/3)
     print("AVG : ", hap/3)
 
+def q1():
+    s = "Life is too short, You need Python"
 
+    s = s.lower().replace(",", "").replace(" ", "")
+    # list로 변환
+    lst = list(s)
+    # 중복 제거 -> set으로 변환
+    chars = set(lst)
+    print("chars : ", chars)
+    # 다시 리스트로 형변환
+    lst = list(chars)
+    lst.sort() # 알파벳 순서로 정렬
+    print(lst)
+    print(len(lst), "개의 알파벳이 사용되었습니다.")
+
+def q2():
+    lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    slice = lst[3:7]
+    slice.reverse()
+    lst[3:7] = slice
+    print(lst)
+    print(lst == [1, 2, 3, 7, 6, 5, 4, 8, 9, 10])
+
+def q3():
+    # 사전을 포함한 리스트
+    students = [
+        {
+            "name": "Kim",
+            "kor": 80,
+            "eng": 90,
+            "math": 80
+        },
+        {
+            "name": "Lee",
+            "kor": 90,
+            "eng": 85,
+            "math": 85
+        }
+    ]
+    # 두 학생의 kor, eng, math 합계 점수와 평균을 사전 데이터에 "total", "average" 키 값으로 넣기
+    for student in students:
+        total = student.get("kor")+student.get("eng")+student.get("math")
+        average = total / 2
+
+    # 리스트 내 딕셔너리 키값 이용해서 값 추출 : 리스트명[인덱스][키값]
+    student['total'] = total
+    student['average'] = average
+
+    print(students)
 
 if __name__ == "__main__":
     # quiz_01()
     # quiz_02()
-    quiz_03()
+    # quiz_03()
+    # q1()
+    # q2()
+    q3()
